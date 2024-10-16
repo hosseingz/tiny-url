@@ -10,14 +10,14 @@ def short_link_generetor(length:int=6):
 
 
 class Url(models.Model):
-    orginal_url = models.URLField()
+    url = models.URLField()
     short_link = models.CharField(max_length=10, unique=True, default=short_link_generetor)
     
     created = models.DateTimeField(default=timezone.now)
     
     
     def __str__(self):
-        return f"{self.orginal_url} -> {self.short_link}"
+        return f"{self.url} -> {self.short_link}"
     
     
     class Meta:
